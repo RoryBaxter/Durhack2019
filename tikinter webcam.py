@@ -40,6 +40,8 @@ cv2.ocl.setUseOpenCL(False)
 # dictionary which assigns each label an emotion (alphabetical order)
 emotion_dict = {0: "Angry", 1: "Disgusted", 2: "Fearful", 3: "Happy", 4: "Neutral", 5: "Sad", 6: "Surprised"}
 
+different_faces = os.listdir("faces")
+
 
 class App:
     def __init__(self, window, window_title, video_source=0):
@@ -50,7 +52,7 @@ class App:
         self.emotion_dcit = {0: "Angry", 1: "Disgusted", 2: "Fearful", 3: "Happy", 4: "Neutral", 5: "Sad", 6: "Surprised"}
         self.radio_value = tkinter.IntVar()
         self.radio_value.set(0)
-        self.faces = [("Trump", 0), ("RonaldMcDonald", 1), ("NicholasCage", 2), ("Emoji", 3), ("Shrek", 4), ("Pepe", 5)]
+        self.faces = [(face, index) for index, face in enumerate(different_faces)]
         self.selected_face = 4
 
         self.resized = ""
